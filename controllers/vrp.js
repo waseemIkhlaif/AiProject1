@@ -45,7 +45,7 @@ const generateInitialSolution = (deliveryPoints, trucks) => {
             }
         }
     });
-
+    console.log(solution);
     return solution;
 };
 
@@ -70,7 +70,6 @@ const generateNeighborSolution = (currentSolution) => {
             newSolution[truck2Idx].load = newSolution[truck2Idx].load - point2.demand + point1.demand;
         }
     }
-
     return newSolution;
 };
 
@@ -96,7 +95,6 @@ const calculateTotalDistance = (solution) => {
 
     return totalDistance;
 };
-
 
 router.get('/optimize', async (req, res) => {
     try {
