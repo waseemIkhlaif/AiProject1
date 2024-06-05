@@ -9,11 +9,20 @@
 </head>
 
 <body>
+    <form action="#" class="data" id="deliveryPointForm">
+        <h2>Enter the data</h2>
+        <input type="text" placeholder="Location" id="location">
+        <input type="text" placeholder="Demand" id="demand">
+        <input type="text" placeholder="X value" id="x">
+        <input type="text" placeholder="y value" id="y">
+        <input type="submit" value="Send">
+    </form>
     <div id="app">
         <h1>VRP Optimization</h1>
         <button id="optimizeButton">Optimize Routes</button>
         <pre id="result"></pre>
     </div>
+    <p id="response"></p>
     <script src="./script.js"></script>
 </body>
 

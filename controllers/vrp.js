@@ -96,6 +96,15 @@ const calculateTotalDistance = (solution) => {
     return totalDistance;
 };
 
+router.post("/", async (req, res) => {
+    try {
+        const newPoint = await DeliveryPoint.create(req.body);
+        res.status(200).json(newPoint);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
 router.get('/optimize', async (req, res) => {
     try {
         const deliveryPoints = await DeliveryPoint.findAll();
