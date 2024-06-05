@@ -45,7 +45,7 @@ const generateInitialSolution = (deliveryPoints, trucks) => {
             }
         }
     });
-
+    console.log(solution);
     return solution;
 };
 
@@ -70,7 +70,6 @@ const generateNeighborSolution = (currentSolution) => {
             newSolution[truck2Idx].load = newSolution[truck2Idx].load - point2.demand + point1.demand;
         }
     }
-
     return newSolution;
 };
 
@@ -97,6 +96,14 @@ const calculateTotalDistance = (solution) => {
     return totalDistance;
 };
 
+router.post("/", async (req, res) => {
+    try {
+        const newPoint = await DeliveryPoint.create(req.body);
+        res.status(200).json(newPoint);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
 
 router.get('/optimize', async (req, res) => {
     try {
